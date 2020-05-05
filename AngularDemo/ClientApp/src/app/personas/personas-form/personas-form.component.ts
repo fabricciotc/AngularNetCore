@@ -20,7 +20,7 @@ export class PersonasFormComponent implements OnInit {
     
     modoEdicion: boolean = false;
     formGroup: FormGroup;
-    personaID: number;
+    personaID: string;
     direccionesABorrar: number[] = [];
     ignorarExistenCambiosPendientes: boolean = false;
 

@@ -13,9 +13,9 @@ namespace AngularDemo.Controllers
     [Route("api/Direcciones")]
     public class DireccionesController : Controller
     {
-        private readonly ApplicationDBContext dbContext;
+        private readonly AppDbContext dbContext;
 
-        public DireccionesController(ApplicationDBContext dbContext)
+        public DireccionesController(AppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -25,7 +25,7 @@ namespace AngularDemo.Controllers
         {
             try
             {
-                List<Direccione> direcciones = ids.Select(id => new Direccione() { id = id }).ToList();
+                List<Address> direcciones = ids.Select(id => new Address() { AddressId = id }).ToList();
                 dbContext.RemoveRange(direcciones);
                 dbContext.SaveChanges();
             }

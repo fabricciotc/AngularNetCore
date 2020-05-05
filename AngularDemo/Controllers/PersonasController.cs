@@ -12,37 +12,37 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 namespace AngularDemo.Controllers
 {
     [Produces("application/json")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/personas")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PersonasController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
+        private readonly AppDbContext _context;
 
-        public PersonasController(ApplicationDBContext context)
+        public PersonasController(AppDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Personas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Persona>>> GetPersonas()
+        public async Task<ActionResult<IEnumerable<User>>> GetPersonas()
         {
-            return  await _context.Personas.ToListAsync();
+            return  await _context.Users.ToListAsync();
         }
 
         // GET: api/Personas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Persona>> GetPersona(int id, bool incluiDirecciones=false)
+        public async Task<ActionResult<User>> GetPersona(int id, bool incluiDirecciones=false)
         {
-            Persona persona;
+            User persona;
             if (incluiDirecciones)
             {
-                persona = await _context.Personas.Include(x=>x.Direcciones).Where(x=>x.ID==id).FirstOrDefaultAsync();
+                persona = await _context.Users.Include(x=>x.address).Where(x=>x.AddressId==id).FirstOrDefaultAsync();
             }
             else
             {
-                persona = await _context.Personas.FindAsync(id);
+                persona = await _context.Users.FindAsync(id);
             }
             if (persona == null)
             {
@@ -53,19 +53,14 @@ namespace AngularDemo.Controllers
         }
 
 
-        private async Task CrearOEditarDirecciones(List<Direccione> direcciones)
+        private async Task CrearOEditarDirecciones(Address direcciones)
         {
-            List<Direccione> direccionesACrear = direcciones.Where(x => x.id == 0).ToList();
-            List<Direccione> direccionesAEditar = direcciones.Where(x => x.id != 0).ToList();
 
-            if (direccionesACrear.Any())
+            var result = await _context.Addresses.SingleOrDefaultAsync(b => b.AddressId == direcciones.AddressId);
+            if (result != null)
             {
-                await _context.AddRangeAsync(direccionesACrear);
-            }
-
-            if (direccionesAEditar.Any())
-            {
-                _context.UpdateRange(direccionesAEditar);
+                result= direcciones;
+                await _context.SaveChangesAsync();
             }
 
         }
@@ -75,9 +70,9 @@ namespace AngularDemo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPersona([FromRoute]int id,[FromBody] Persona persona)
+        public async Task<IActionResult> PutPersona([FromRoute]string id,[FromBody] User persona)
         {
-            if (id != persona.ID)
+            if (id != persona.Id)
             {
                 return BadRequest();
             }
@@ -86,7 +81,7 @@ namespace AngularDemo.Controllers
 
             try
             {
-                await CrearOEditarDirecciones(persona.Direcciones);
+                await CrearOEditarDirecciones(persona.address);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -108,33 +103,33 @@ namespace AngularDemo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Persona>> PostPersona(Persona persona)
+        public async Task<ActionResult<User>> PostPersona(User persona)
         {
-            _context.Personas.Add(persona);
+            _context.Users.Add(persona);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPersona", new { id = persona.ID }, persona);
+            return CreatedAtAction("GetPersona", new { id = persona.Id }, persona);
         }
 
         // DELETE: api/Personas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Persona>> DeletePersona(int id)
+        public async Task<ActionResult<User>> DeletePersona(string id)
         {
-            var persona = await _context.Personas.FindAsync(id);
+            var persona = await _context.Users.FindAsync(id);
             if (persona == null)
             {
                 return NotFound();
             }
 
-            _context.Personas.Remove(persona);
+            _context.Users.Remove(persona);
             await _context.SaveChangesAsync();
 
             return persona;
         }
 
-        private bool PersonaExists(int id)
+        private bool PersonaExists(string id)
         {
-            return _context.Personas.Any(e => e.ID == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

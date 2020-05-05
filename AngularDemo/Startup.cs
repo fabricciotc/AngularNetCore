@@ -1,4 +1,4 @@
-using AngularDemo.Models;
+﻿using AngularDemo.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AngularDemo
 {
@@ -29,12 +30,21 @@ namespace AngularDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddNewtonsoftJson();
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Server")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Server")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>()
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
+            });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
             options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
             {
                 ValidateIssuer = true,
@@ -79,8 +89,7 @@ namespace AngularDemo
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseAuthorization();
+            app.UseStaticFiles();           
             app.UseAuthentication();
 
             if (!env.IsDevelopment())

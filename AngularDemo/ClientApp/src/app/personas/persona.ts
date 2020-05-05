@@ -1,7 +1,7 @@
 import { IDireccion } from "../direcciones/direccion";
 
 export interface IPersona {
-    id: number;
+    id: string;
     nombre: string;
     fechaNacimiento: Date;
     direcciones: IDireccion[];

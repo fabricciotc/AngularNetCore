@@ -18,13 +18,13 @@ namespace AngularDemo.Controllers
     [Route("api/Account")]
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
 
         public AccountController(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
             IConfiguration configuration)
         {
             _userManager = userManager;
@@ -34,15 +34,16 @@ namespace AngularDemo.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserInfo model)
+        public async Task<IActionResult> CreateUser([FromBody] RegisterInfo model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email, Fullname=model.Fullname,
+                                      Birthday = model.Birthday, Sex= model.Sex};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return BuildToken(model);
+                    return BuildToken(new LoginInfo { Email=model.Email, Password= model.Password });
                 }
                 else
                 {
@@ -58,7 +59,7 @@ namespace AngularDemo.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] UserInfo userInfo)
+        public async Task<IActionResult> Login([FromBody] LoginInfo userInfo)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +80,7 @@ namespace AngularDemo.Controllers
             }
         }
 
-        private IActionResult BuildToken(UserInfo userInfo)
+        private IActionResult BuildToken(LoginInfo userInfo)
         {
             var claims = new[]
             {
@@ -89,8 +90,8 @@ namespace AngularDemo.Controllers
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["LLAVE"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var expiration = DateTime.UtcNow.AddDays(7);
+            // EN ESTE TIEMPO DE EXPIRACION EL TOKEN SE CIERRA Y SE GENERA UNO NUEVO, SIN EMBARGO EN POSTMAN SIRVE AUN
+            var expiration = DateTime.UtcNow.AddMinutes(1);
 
             JwtSecurityToken token = new JwtSecurityToken(
                issuer: "http://localhost:50521/",
