@@ -43,7 +43,8 @@ namespace AngularDemo.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return BuildToken(new LoginInfo { Email=model.Email, Password= model.Password });
+                    var userget= await _userManager.FindByEmailAsync(model.Email);
+                    return BuildToken(userget);
                 }
                 else
                 {
@@ -66,7 +67,8 @@ namespace AngularDemo.Controllers
                 var result = await _signInManager.PasswordSignInAsync(userInfo.Email, userInfo.Password, isPersistent: false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    return BuildToken(userInfo);
+                    var userget = await _userManager.FindByEmailAsync(userInfo.Email);
+                    return BuildToken(userget);
                 }
                 else
                 {
@@ -80,18 +82,19 @@ namespace AngularDemo.Controllers
             }
         }
 
-        private IActionResult BuildToken(LoginInfo userInfo)
+        private IActionResult BuildToken(User userInfo)
         {
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
+                new Claim("fullname", userInfo.Fullname),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["LLAVE"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            // EN ESTE TIEMPO DE EXPIRACION EL TOKEN SE CIERRA Y SE GENERA UNO NUEVO, SIN EMBARGO EN POSTMAN SIRVE AUN
-            var expiration = DateTime.UtcNow.AddMinutes(1);
+            // EN ESTE TIEMPO DE EXPIRACION EL TOKEN SE CIERRA Y SE GENERA UNO NUEVO, POR EN DE YA NO SIRVE LA AUTH
+            var expiration = DateTime.UtcNow.AddMinutes(10);
 
             JwtSecurityToken token = new JwtSecurityToken(
                issuer: "http://localhost:50521/",

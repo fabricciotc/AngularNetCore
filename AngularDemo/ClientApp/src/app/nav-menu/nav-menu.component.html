@@ -1,9 +1,9 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">AngularDemo</a>
+      <a class="navbar-brand" [routerLink]="['/']">College Virtual</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -23,24 +23,31 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-ligth" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-ligth" [routerLink]="['/counter']">Counter</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/personas']">Personas</a>
+            <a class="nav-link text-ligth" [routerLink]="['/personas']">Support</a>
           </li>
           <li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/register-login"]' (click)='collapse()'>
-              <span class='glyphicon glyphicon-th-list'></span> Register / Login
+            <a class="nav-link text-success" [routerLink]='["/login"]' (click)='collapse()'>
+              <span class='glyphicon glyphicon-th-list'></span> Login
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-info" [routerLink]='["/register"]' (click)='collapse()'>
+              <span class='glyphicon glyphicon-th-list'></span> Register
             </a>
           </li>
           <li *ngIf="estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a (click)='logout()'>
+            <a class="nav-link text-info" style="cursor:pointer">
+              <span class='glyphicon glyphicon-th-list'></span> {{obtenerUniqueName()}}
+            </a>
+          </li>
+          <li *ngIf="estaLogueado()" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-danger" (click)='logout()' style="cursor:pointer">
               <span class='glyphicon glyphicon-th-list'></span> Logout
             </a>
           </li>

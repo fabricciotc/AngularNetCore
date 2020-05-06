@@ -1,36 +1,19 @@
 <div class="outer">
   <div class="middle">
     <div class="inner">
-      <div>
-        <h1>Registrate con nosotros</h1>
+      <div >
+        <h1>Inicia tu Sesion</h1>
       </div>
       <form class="form-horizontal" novalidate
             [formGroup]="formGroup">
         <fieldset>
-          <div class="form-group"
-               [ngClass]="{'has-error': (formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && !formGroup.get('fullname').valid }">
-            <label class=" control-label"
-                   for="fullnameID">Fullname</label>
 
-            <div>
-              <input class="form-control"
-                     id="fullnameID"
-                     type="text"
-                     required
-                     formControlName="fullname" />
-              <span class="help-block" *ngIf="(formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && formGroup.get('fullname').errors">
-                <span *ngIf="formGroup.get('fullname').errors.required">
-                  El campo nombre es requerido
-                </span>
-              </span>
-            </div>
-          </div>
           <div class="form-group"
                [ngClass]="{'has-error': (formGroup.get('email').touched || formGroup.get('email').dirty) && !formGroup.get('email').valid }">
             <label class=" control-label"
                    for="emailId">Email</label>
 
-            <div>
+            <div >
               <input class="form-control"
                      id="emailId"
                      type="text"
@@ -66,15 +49,15 @@
           <div class="form-group">
             <div class=" col-md-offset-2">
               <span>
-                <button class="btn btn-primary"
+                <button class="btn btn-success"
                         type="button"
-                        (click)="registrarse()"
+                        (click)="loguearse()"
                         [disabled]="!formGroup.valid">
-                  Registrarse
+                  Ingresar
                 </button>
                 <a class="linked"
-                   [routerLink]='["/login"]'>
-                  ¿Tienes una cuenta? Inicia tu sesion aqui.
+                   [routerLink]='["/register"]'>
+                  ¿Eres nuevo por aqui? Registrate con nosotros
                 </a>
                 <button class="btn"
                         type="button"

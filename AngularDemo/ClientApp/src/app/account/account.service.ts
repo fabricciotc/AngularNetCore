@@ -13,8 +13,10 @@ export class AccountService {
         return this.http.post<any>(this.apiURL + "/create", userInfo);
 
     }
-    login(userInfo: IUserInfo): Observable<any> {
-        return this.http.post<any>(this.apiURL + "/Login", userInfo);
+  login(userInfo: IUserInfo): Observable<any> {
+    localStorage.removeItem("token");
+    localStorage.removeItem("tokenExpiration");
+        return this.http.post<any>(this.apiURL + "/login", userInfo);
     }
 
     obtenerToken(): string {

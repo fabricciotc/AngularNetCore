@@ -24,19 +24,13 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    loguearse() {
-        let userInfo: IUserInfo = Object.assign({}, this.formGroup.value);
-        this.accountService.login(userInfo).subscribe(token => this.recibirToken(token),
-            error => this.manejarError(error));
-    }
-
-    registrarse() {
+   private registrarse() {
         let userInfo: IUserInfo = Object.assign({}, this.formGroup.value);
         this.accountService.create(userInfo).subscribe(token => this.recibirToken(token),
             error => this.manejarError(error));
     }
 
-    recibirToken(token) {
+  private recibirToken(token) {
         localStorage.setItem('token', token.token);
         localStorage.setItem('tokenExpiration', token.expiration);
         this.router.navigate([""]);

@@ -23,10 +23,16 @@ export class NavMenuComponent {
     this.isExpanded = !this.isExpanded;
     }
 
-
+  private obtenerUniqueName(): string {
+    let token = localStorage.getItem("token");
+    let jwtData = token.split('.')[1];
+    let decodedJwtJsonData = window.atob(jwtData);
+    let decodedJwtData = JSON.parse(decodedJwtJsonData);
+    return decodedJwtData.fullname;
+  }
     logout() {
         this.accountService.logout();
-        this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }
 
     estaLogueado() {
