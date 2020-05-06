@@ -21,14 +21,17 @@ namespace AngularDemo.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AccountController(
             UserManager<User> userManager,
+             RoleManager<IdentityRole> roleManager,
             SignInManager<User> signInManager,
             IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             this._configuration = configuration;
         }
 
@@ -36,13 +39,15 @@ namespace AngularDemo.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] RegisterInfo model)
         {
+            
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email, Fullname=model.Fullname,
-                                      Birthday = model.Birthday, Sex= model.Sex};
+                var user = new User { UserName = model.Email, Email = model.Email, FirstName=model.FirstName,
+                                      LastNames=model.LastNames ,Birthday = model.Birthday, Sex= model.Sex};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "STUDENT");
                     var userget= await _userManager.FindByEmailAsync(model.Email);
                     return BuildToken(userget);
                 }
@@ -87,7 +92,7 @@ namespace AngularDemo.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                new Claim("fullname", userInfo.Fullname),
+                new Claim("fullname", userInfo.FirstName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

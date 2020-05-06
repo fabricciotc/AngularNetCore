@@ -11,15 +11,19 @@ namespace AngularDemo.Models
 {
     public class User: IdentityUser
     {
-        [StringLength(60)]
+        [StringLength(30)]
         [Required]
-        public string Fullname { set; get; }
+        public string FirstName { set; get; }
+        [StringLength(40)]
+        [Required]
+        public string LastNames { set; get; }
         [StringLength(20)]
         public string NUM_DOC { set; get; }
         [Required]
         public DateTime Birthday { set; get; }
         [Required]
         public bool Sex { set; get; }
+        public byte[] Photo { set; get; }
         public int? AddressId { set; get; } 
         [ForeignKey("AddressId")]
         public Address address { set; get; }
