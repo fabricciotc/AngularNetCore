@@ -8,6 +8,101 @@ a {
 code {
   color: #e01a76;
 }
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.image-cropper {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #17a2b8;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  border-radius: 50%;
+}
+
+
+  .image-cropper img {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+  }
+.btnmenu {
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: 0px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  background-color: #191919;
+  color:white;
+}
+.mat-drawer.mat-drawer-side, .mat-sidenav-fixed {
+  background-color: #292929;
+  padding-top: 8px;
+  border-right: 4px solid #191919;
+}
+
+.nav-link{
+    padding:0px;
+}
+a.nav-link {
+  font-size: 20px;
+  color: lightgray;
+}
+  a.nav-link:hover {
+    color: gray;
+  }
+  a.nav-link:active {
+    color: white;
+  }
+li.nav-item {
+  padding: 15px;
+  padding-right:35px;
+}
+
+a fa-icon.ng-fa-icon {
+  font-size: 20px;
+  margin-right: 10px
+}
+
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+
 
 .btn-primary {
   color: #fff;
@@ -22,7 +117,7 @@ code {
   text-align: center;
   min-height: 100vh;
 }
-.help-block[_ngcontent-ng-cli-universal-c2]{
+.help-block{
     color:red;
     font-weight:100;
 }

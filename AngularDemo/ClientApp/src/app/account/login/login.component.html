@@ -1,8 +1,13 @@
 <div class="outer">
   <div class="middle">
     <div class="inner">
-      <div >
+      <div>
         <h1>Inicia tu Sesion</h1>
+        <span class="help-block" *ngIf="error">
+          <span>
+            El usuario y contraseña son invalidados
+          </span>
+        </span>
       </div>
       <form class="form-horizontal" novalidate
             [formGroup]="formGroup">

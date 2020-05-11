@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
         private accountService: AccountService,
         private router: Router) { }
     formGroup: FormGroup;
-
+    error: boolean = false;
     ngOnInit() {
       this.formGroup = this.fb.group({
             fullname:'',
@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
     }
 
    private registrarse() {
-        let userInfo: IUserInfo = Object.assign({}, this.formGroup.value);
-        this.accountService.create(userInfo).subscribe(token => this.recibirToken(token),
+     let userInfo: IUserInfo = Object.assign({}, this.formGroup.value);
+     this.accountService.create(userInfo).subscribe(token => this.recibirToken(token),
             error => this.manejarError(error));
     }
 
@@ -37,8 +37,8 @@ export class RegisterComponent implements OnInit {
     }
 
     manejarError(error) {
-        if (error && error.error) {
-            alert(error.error[""]);
+      if (error && error.error) {
+        this.error = true;
         }
     }
 }

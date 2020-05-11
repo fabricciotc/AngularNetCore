@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using AngularDemo.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -86,6 +89,26 @@ namespace AngularDemo.Controllers
                 return BadRequest(ModelState);
             }
         }
+        [HttpGet("{id}")]
+        [Route("Photo")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<byte[]> photo(string id)
+        {
+            var userget = await _userManager.FindByIdAsync(id);
+            if (userget.Photo != null)
+            {
+
+            return userget.Photo;
+            }
+            else
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    byte[] data = webClient.DownloadData("https://cdn.clipart.email/75bb59ce70a79e68801ccd3eea203e5e_view-user-icon-png-user-circle-icon-png-transparent-png-_820-860.jpeg");
+                    return data;
+                }
+            }
+        }
 
         private IActionResult BuildToken(User userInfo)
         {
@@ -93,6 +116,7 @@ namespace AngularDemo.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
                 new Claim("fullname", userInfo.FirstName),
+                new Claim("id", userInfo.Id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AngularDemo.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace College_Virtual.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="TEACHER")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "TEACHER")]
     public class CoursesController : ControllerBase
     {
         private readonly AppDbContext _context;

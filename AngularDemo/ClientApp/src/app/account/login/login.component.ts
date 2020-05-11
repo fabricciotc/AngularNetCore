@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     private accountService: AccountService,
     private router: Router) { }
   formGroup: FormGroup;
-
+  error: boolean = false;
   ngOnInit() {
     this.formGroup = this.fb.group({
       fullname: '',
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   manejarError(error) {
     if (error && error.error) {
-      alert(error.error[""]);
+      this.error = true;
     }
   }
 

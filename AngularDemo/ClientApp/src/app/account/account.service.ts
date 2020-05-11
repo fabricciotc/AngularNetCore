@@ -17,7 +17,17 @@ export class AccountService {
     localStorage.removeItem("token");
     localStorage.removeItem("tokenExpiration");
         return this.http.post<any>(this.apiURL + "/login", userInfo);
+  }
+  obtenerPhoto(): Observable<[]> {
+    let token = localStorage.getItem("token");
+    if (token != null) {
+      let jwtData = token.split('.')[1];
+      let decodedJwtJsonData = window.atob(jwtData);
+      let decodedJwtData = JSON.parse(decodedJwtJsonData);
+      let id = decodedJwtData.id;
+      return this.http.get<any>(this.apiURL + "/photo/?id=" + id);
     }
+  }
 
     obtenerToken(): string {
         return localStorage.getItem("token");

@@ -3,6 +3,11 @@
     <div class="inner">
       <div>
         <h1>Registrate con nosotros</h1>
+        <span class="help-block" *ngIf="error">
+          <span>
+            El correo se encuentra en uso
+          </span>
+        </span>
       </div>
       <form class="form-horizontal" novalidate
             [formGroup]="formGroup">

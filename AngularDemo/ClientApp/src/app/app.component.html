@@ -1,6 +1,66 @@
 <body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()" *ngIf="estaLogueado()"  class="btnmenu"> <fa-icon [icon]="faBars"></fa-icon></button>
+      <h1 class="example-app-name">Edukatica</h1>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container"
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+           <ul class="navbar-nav flex-grow" *ngIf="estaLogueado()">
+          <li class="nav-item" *ngIf="estaLogueado()" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-ligth" [routerLink]="['/']">
+              <fa-icon [icon]="faSchool"></fa-icon>Inicio</a>
+          </li>
+          <li class="nav-item" *ngIf="estaLogueado()" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-ligth" [routerLink]="['/counter']">
+              <fa-icon [icon]="faBookOpen"></fa-icon>Mis Cursos</a>
+          </li>
+          <li class="nav-item" *ngIf="estaLogueado()" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-ligth" [routerLink]="['/counter']">
+              <fa-icon [icon]="faAward"></fa-icon>Calificaciones</a>
+          </li>
+          <li class="nav-item" *ngIf="estaLogueado()" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-ligth" [routerLink]="['/counter']">
+              <fa-icon [icon]="faEnvelope"></fa-icon>Mensajes</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-ligth" [routerLink]="['/personas']">
+              <fa-icon [icon]="faHeadset"></fa-icon>Soporte</a>
+          </li>
+          <!--<li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-success" [routerLink]='["/login"]'>
+              <span class='glyphicon glyphicon-th-list'></span> Login
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-info" [routerLink]='["/register"]'>
+              <span class='glyphicon glyphicon-th-list'></span> Register
+            </a>
+          </li>-->
+          <li class="nav-item" *ngIf="estaLogueado()" [routerLinkActive]='["link-active"]'>
+            <div style="align-items: center;display:inline-flex;">
+              <div class="image-cropper">
+                <img [src]="imageURL" width="50" height="50" />
+              </div>
+              <a class="nav-link text-info" *ngIf="estaLogueado()" [routerLink]='["/profile"]' style="cursor:pointer; padding:3px">
+                <span class='glyphicon glyphicon-th-list'></span> {{obtenerUniqueName()}}
+              </a>
+            </div>
+          </li>
+          <li *ngIf="estaLogueado()" class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-danger" (click)='logout()' style="cursor:pointer">
+              <fa-icon [icon]="faDoorClosed"></fa-icon> Logout
+            </a>
+          </li>
+        </ul>
+      </mat-sidenav>
+
+      <mat-sidenav-content style="padding:10px; padding-left:20px; padding-right:20px">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 </body>
