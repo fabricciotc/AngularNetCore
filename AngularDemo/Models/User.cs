@@ -27,12 +27,12 @@ namespace AngularDemo.Models
         public int? AddressId { set; get; } 
         [ForeignKey("AddressId")]
         public Address address { set; get; }
+        [Required]
+        public bool Suscription { set; get; }
         //PROPIEDAD NAVIGACIONAL STUDENT
         public virtual List<Enroll> Enrolles { set; get; }
-        public virtual List<Admission> Admissions { set; get; }
         //PROPIEDAD NAVIGACIONAL TEACHER
         public virtual List<Course> Courses { set; get; }
-        public virtual List<Contract> Contacts { set; get; }
 
     }
 }

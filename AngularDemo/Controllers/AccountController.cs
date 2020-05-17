@@ -45,7 +45,7 @@ namespace AngularDemo.Controllers
             
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email, FirstName=model.FirstName,
+                var user = new User { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, Suscription = false,
                                       LastNames=model.LastNames ,Birthday = model.Birthday, Sex= model.Sex};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -102,11 +102,7 @@ namespace AngularDemo.Controllers
             }
             else
             {
-                using (WebClient webClient = new WebClient())
-                {
-                    byte[] data = webClient.DownloadData("https://cdn.clipart.email/75bb59ce70a79e68801ccd3eea203e5e_view-user-icon-png-user-circle-icon-png-transparent-png-_820-860.jpeg");
-                    return data;
-                }
+                return null;
             }
         }
 

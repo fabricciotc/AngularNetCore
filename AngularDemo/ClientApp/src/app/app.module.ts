@@ -56,7 +56,6 @@ registerLocaleData(locale);
     MatSliderModule,
     MatSlideToggleModule,
     MatToolbarModule,
-    MatSidenavModule,
     FontAwesomeModule,
       ReactiveFormsModule,
     RouterModule.forRoot([

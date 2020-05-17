@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace AngularDemo.Migrations
+namespace College_Virtual.Migrations
 {
-    public partial class college_db : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,21 +40,6 @@ namespace AngularDemo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "College",
-                columns: table => new
-                {
-                    CollegeId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(maxLength: 45, nullable: true),
-                    Nationality = table.Column<string>(maxLength: 20, nullable: true),
-                    Phone = table.Column<string>(maxLength: 40, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_College", x => x.CollegeId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
                 {
@@ -73,11 +58,14 @@ namespace AngularDemo.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Fullname = table.Column<string>(maxLength: 60, nullable: false),
+                    FirstName = table.Column<string>(maxLength: 30, nullable: false),
+                    LastNames = table.Column<string>(maxLength: 40, nullable: false),
                     NUM_DOC = table.Column<string>(maxLength: 20, nullable: true),
                     Birthday = table.Column<DateTime>(nullable: false),
                     Sex = table.Column<bool>(nullable: false),
-                    AddressId = table.Column<int>(nullable: true)
+                    Photo = table.Column<byte[]>(nullable: true),
+                    AddressId = table.Column<int>(nullable: true),
+                    Suscription = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,62 +97,6 @@ namespace AngularDemo.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Sede",
-                columns: table => new
-                {
-                    SedeId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AddressId = table.Column<int>(nullable: false),
-                    DisplayName = table.Column<string>(nullable: true),
-                    CollegeId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sede", x => x.SedeId);
-                    table.ForeignKey(
-                        name: "FK_Sede_Addresses_AddressId",
-                        column: x => x.AddressId,
-                        principalTable: "Addresses",
-                        principalColumn: "AddressId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Sede_College_CollegeId",
-                        column: x => x.CollegeId,
-                        principalTable: "College",
-                        principalColumn: "CollegeId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Admission",
-                columns: table => new
-                {
-                    AdmissionId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Status = table.Column<string>(maxLength: 30, nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
-                    Modificated = table.Column<DateTime>(nullable: false),
-                    CollegeId = table.Column<int>(nullable: false),
-                    StudentId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admission", x => x.AdmissionId);
-                    table.ForeignKey(
-                        name: "FK_Admission_College_CollegeId",
-                        column: x => x.CollegeId,
-                        principalTable: "College",
-                        principalColumn: "CollegeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Admission_AspNetUsers_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -253,42 +185,12 @@ namespace AngularDemo.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Contract",
-                columns: table => new
-                {
-                    ContractId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Status = table.Column<string>(maxLength: 30, nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
-                    Modificated = table.Column<DateTime>(nullable: false),
-                    TeacherId = table.Column<string>(nullable: true),
-                    CollegeId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Contract", x => x.ContractId);
-                    table.ForeignKey(
-                        name: "FK_Contract_College_CollegeId",
-                        column: x => x.CollegeId,
-                        principalTable: "College",
-                        principalColumn: "CollegeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Contract_AspNetUsers_TeacherId",
-                        column: x => x.TeacherId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Courses",
                 columns: table => new
                 {
                     CourseId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(maxLength: 45, nullable: true),
-                    Faculty = table.Column<string>(maxLength: 25, nullable: true),
                     Classroom = table.Column<string>(maxLength: 20, nullable: true),
                     CollegeId = table.Column<int>(nullable: false),
                     TeacherId = table.Column<string>(nullable: true),
@@ -297,18 +199,6 @@ namespace AngularDemo.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Courses", x => x.CourseId);
-                    table.ForeignKey(
-                        name: "FK_Courses_College_CollegeId",
-                        column: x => x.CollegeId,
-                        principalTable: "College",
-                        principalColumn: "CollegeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Courses_Sede_SedeId",
-                        column: x => x.SedeId,
-                        principalTable: "Sede",
-                        principalColumn: "SedeId",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Courses_AspNetUsers_TeacherId",
                         column: x => x.TeacherId,
@@ -345,63 +235,6 @@ namespace AngularDemo.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Homework",
-                columns: table => new
-                {
-                    HomeworkId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(maxLength: 30, nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Created = table.Column<DateTime>(nullable: false),
-                    Expired = table.Column<DateTime>(nullable: false),
-                    Chance = table.Column<int>(nullable: false),
-                    CourseId = table.Column<int>(nullable: false),
-                    TeacherId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Homework", x => x.HomeworkId);
-                    table.ForeignKey(
-                        name: "FK_Homework_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
-                        principalColumn: "CourseId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Schedule",
-                columns: table => new
-                {
-                    ScheduleId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Day = table.Column<string>(nullable: true),
-                    Start = table.Column<string>(nullable: true),
-                    Finish = table.Column<string>(nullable: true),
-                    CourseId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Schedule", x => x.ScheduleId);
-                    table.ForeignKey(
-                        name: "FK_Schedule_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
-                        principalColumn: "CourseId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Admission_CollegeId",
-                table: "Admission",
-                column: "CollegeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Admission_StudentId",
-                table: "Admission",
-                column: "StudentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -448,26 +281,6 @@ namespace AngularDemo.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contract_CollegeId",
-                table: "Contract",
-                column: "CollegeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Contract_TeacherId",
-                table: "Contract",
-                column: "TeacherId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Courses_CollegeId",
-                table: "Courses",
-                column: "CollegeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Courses_SedeId",
-                table: "Courses",
-                column: "SedeId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Courses_TeacherId",
                 table: "Courses",
                 column: "TeacherId");
@@ -481,33 +294,10 @@ namespace AngularDemo.Migrations
                 name: "IX_Enroll_StudentId",
                 table: "Enroll",
                 column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homework_CourseId",
-                table: "Homework",
-                column: "CourseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Schedule_CourseId",
-                table: "Schedule",
-                column: "CourseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sede_AddressId",
-                table: "Sede",
-                column: "AddressId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Sede_CollegeId",
-                table: "Sede",
-                column: "CollegeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Admission");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -524,16 +314,7 @@ namespace AngularDemo.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Contract");
-
-            migrationBuilder.DropTable(
                 name: "Enroll");
-
-            migrationBuilder.DropTable(
-                name: "Homework");
-
-            migrationBuilder.DropTable(
-                name: "Schedule");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -542,13 +323,7 @@ namespace AngularDemo.Migrations
                 name: "Courses");
 
             migrationBuilder.DropTable(
-                name: "Sede");
-
-            migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "College");
 
             migrationBuilder.DropTable(
                 name: "Addresses");

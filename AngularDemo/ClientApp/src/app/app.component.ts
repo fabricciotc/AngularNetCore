@@ -38,7 +38,11 @@ export class AppComponent implements OnDestroy{
     return decodedJwtData.fullname;
   }
   private obtenerPhoto() {
-    this.accountService.obtenerPhoto().subscribe(photo => { this.imageURL = 'data:image/png;base64,' + photo },
+    this.accountService.obtenerPhoto().subscribe(photo => {
+      if (photo != null) {
+        this.imageURL = 'data:image/png;base64,' + photo
+      }
+    },
       error => console.log(error));
   }
 

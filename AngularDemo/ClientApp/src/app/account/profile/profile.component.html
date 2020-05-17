@@ -1,1 +1,6 @@
-<p>profile works!</p>
+<!--//PREVISUALIZACION-->
+<div style="text-align:center"> 
+  <img class="profilephoto" [src]="imageURL"/>
+<!--INGRESAR PHOTO-->
+<input type="file" (change)="onUploadChange($event)" class="myButton" accept=".png, .jpg, .jpeg, .pdf" />
+</div>

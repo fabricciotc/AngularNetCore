@@ -29,7 +29,6 @@ namespace AngularDemo.Models
         }
         public DbSet<Course> Courses { set; get; }
         public DbSet<Address> Addresses { set; get; }
-        public DbSet<AngularDemo.Models.College> College { get; set; }
 
         //AGREGAR LISTAS QUE DESEO USAR
     }
