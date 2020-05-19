@@ -23,16 +23,11 @@ namespace AngularDemo.Models
         public DateTime Birthday { set; get; }
         [Required]
         public bool Sex { set; get; }
+        public bool suscription { set; get; }
         public byte[] Photo { set; get; }
         public int? AddressId { set; get; } 
-        [ForeignKey("AddressId")]
-        public Address address { set; get; }
         //PROPIEDAD NAVIGACIONAL STUDENT
-        public virtual List<Enroll> Enrolles { set; get; }
-        public virtual List<Admission> Admissions { set; get; }
-        //PROPIEDAD NAVIGACIONAL TEACHER
-        public virtual List<Course> Courses { set; get; }
-        public virtual List<Contract> Contacts { set; get; }
+        public virtual List<CourseBuy> CursoComprados { set; get; }
 
     }
 }

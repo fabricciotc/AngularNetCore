@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AccountService } from '../account/account.service';
 import { Router } from '@angular/router';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav-menu',
@@ -14,11 +15,11 @@ export class NavMenuComponent {
         private router: Router) { }
 
   isExpanded = false;
-
+  faSearch = faSearch;
   collapse() {
     this.isExpanded = false;
   }
-
+  select:boolean = false;
   toggle() {
     this.isExpanded = !this.isExpanded;
     }
@@ -37,5 +38,11 @@ export class NavMenuComponent {
 
     estaLogueado() {
         return this.accountService.estaLogueado();
-    }
+  }
+  selection() {
+    this.select = true;
+  }
+  focusOutFunction() {
+    this.select = false;
+  }
 }

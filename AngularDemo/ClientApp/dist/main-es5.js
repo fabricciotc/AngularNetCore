@@ -1,5 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/account/login/login.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/account/login/login.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"outer\">\r\n  <div class=\"middle\">\r\n    <div class=\"inner\" style=\"background:whitesmoke; border-radius:30px; padding:50px\">\r\n      <div >\r\n        <div>\r\n          <h1>Inicia tu Sesion</h1>\r\n        </div>\r\n        <form class=\"form-horizontal\" novalidate\r\n              [formGroup]=\"formGroup\">\r\n          <fieldset>\r\n\r\n            <div class=\"form-group\"\r\n                 [ngClass]=\"{'has-error': (formGroup.get('email').touched || formGroup.get('email').dirty) && !formGroup.get('email').valid }\">\r\n              <label class=\" control-label\"\r\n                     for=\"emailId\">Email</label>\r\n\r\n              <div>\r\n                <input class=\"form-control\"\r\n                       id=\"emailId\"\r\n                       type=\"text\"\r\n                       required\r\n                       formControlName=\"email\" />\r\n                <span class=\"help-block\" *ngIf=\"(formGroup.get('email').touched || formGroup.get('email').dirty) && formGroup.get('email').errors\">\r\n                  <span *ngIf=\"formGroup.get('email').errors.required\">\r\n                    El campo email es requerido\r\n                  </span>\r\n                </span>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"form-group\"\r\n                 [ngClass]=\"{'has-error': (formGroup.get('password').touched || formGroup.get('password').dirty) && !formGroup.get('password').valid }\">\r\n              <label class=\" control-label\"\r\n                     for=\"passwordId\">Password</label>\r\n\r\n              <div>\r\n                <input class=\"form-control\"\r\n                       id=\"passwordId\"\r\n                       type=\"password\"\r\n                       required\r\n                       formControlName=\"password\" />\r\n                <span class=\"help-block\" *ngIf=\"(formGroup.get('password').touched || formGroup.get('password').dirty) && formGroup.get('password').errors\">\r\n                  <span *ngIf=\"formGroup.get('password').errors.required\">\r\n                    El campo password es requerido\r\n                  </span>\r\n                </span>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <div class=\" col-md-offset-2\">\r\n                <span>\r\n                  <button class=\"btn btn-success\"\r\n                          type=\"button\"\r\n                          (click)=\"loguearse()\"\r\n                          [disabled]=\"!formGroup.valid\">\r\n                    Ingresar\r\n                  </button>\r\n                  <a class=\"linked\"\r\n                     [routerLink]='[\"/register\"]'>\r\n                    ¿Eres nuevo por aqui? Registrate con nosotros\r\n                  </a>\r\n                  <button class=\"btn\"\r\n                          type=\"button\"\r\n                          [routerLink]='[\"/\"]'>\r\n                    Cancelar\r\n                  </button>\r\n                </span>\r\n\r\n              </div>\r\n\r\n            </div>\r\n\r\n          </fieldset>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/account/register/register.component.html":
 /*!************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/account/register/register.component.html ***!
@@ -7,7 +18,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Ingrese sus Datos</h1>\r\n<form class=\"form-horizontal\" novalidate\r\n      [formGroup]=\"formGroup\">\r\n  <fieldset>\r\n    <div class=\"form-group\"\r\n         [ngClass]=\"{'has-error': (formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && !formGroup.get('fullname').valid }\">\r\n      <label class=\"col-md-2 control-label\"\r\n             for=\"fullnameID\">Fullname</label>\r\n\r\n      <div class=\"col-md-8\">\r\n        <input class=\"form-control\"\r\n               id=\"fullnameID\"\r\n               type=\"text\"\r\n               required\r\n               formControlName=\"fullname\" />\r\n        <span class=\"help-block\" *ngIf=\"(formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && formGroup.get('fullname').errors\">\r\n          <span *ngIf=\"formGroup.get('fullname').errors.required\">\r\n            El campo nombre es requerido\r\n          </span>\r\n        </span>\r\n      </div>\r\n    </div>\r\n    <div class=\"form-group\"\r\n         [ngClass]=\"{'has-error': (formGroup.get('email').touched || formGroup.get('email').dirty) && !formGroup.get('email').valid }\">\r\n      <label class=\"col-md-2 control-label\"\r\n             for=\"emailId\">Email</label>\r\n\r\n      <div class=\"col-md-8\">\r\n        <input class=\"form-control\"\r\n               id=\"emailId\"\r\n               type=\"text\"\r\n               required\r\n               formControlName=\"email\" />\r\n        <span class=\"help-block\" *ngIf=\"(formGroup.get('email').touched || formGroup.get('email').dirty) && formGroup.get('email').errors\">\r\n          <span *ngIf=\"formGroup.get('email').errors.required\">\r\n            El campo email es requerido\r\n          </span>\r\n        </span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\"\r\n         [ngClass]=\"{'has-error': (formGroup.get('password').touched || formGroup.get('password').dirty) && !formGroup.get('password').valid }\">\r\n      <label class=\"col-md-2 control-label\"\r\n             for=\"passwordId\">Password</label>\r\n\r\n      <div class=\"col-md-8\">\r\n        <input class=\"form-control\"\r\n               id=\"passwordId\"\r\n               type=\"password\"\r\n               required\r\n               formControlName=\"password\" />\r\n        <span class=\"help-block\" *ngIf=\"(formGroup.get('password').touched || formGroup.get('password').dirty) && formGroup.get('password').errors\">\r\n          <span *ngIf=\"formGroup.get('password').errors.required\">\r\n            El campo password es requerido\r\n          </span>\r\n        </span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <div class=\"col-md-6 col-md-offset-2\">\r\n        <span>\r\n          <button class=\"btn btn-primary\"\r\n                  type=\"button\"\r\n                  (click)=\"loguearse()\"\r\n                  [disabled]=\"!formGroup.valid\">\r\n            Loguearse\r\n          </button>\r\n          <button class=\"btn btn-primary\"\r\n                  type=\"button\"\r\n                  (click)=\"registrarse()\"\r\n                  [disabled]=\"!formGroup.valid\">\r\n            Registrarse\r\n          </button>\r\n          <button class=\"btn\"\r\n                  type=\"button\"\r\n                  [routerLink]='[\"/\"]'>\r\n            Cancelar\r\n          </button>\r\n        </span>\r\n\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </fieldset>\r\n</form>\r\n"
+module.exports = "<div class=\"outer\">\r\n  <div class=\"middle\">\r\n    <div class=\"inner\"  style=\"background:whitesmoke; border-radius:30px; padding:50px\">\r\n      <div>\r\n        <h1>Registrate con nosotros</h1>\r\n      </div>\r\n      <form class=\"form-horizontal\" novalidate\r\n            [formGroup]=\"formGroup\">\r\n        <fieldset>\r\n          <div class=\"form-group\"\r\n               [ngClass]=\"{'has-error': (formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && !formGroup.get('fullname').valid }\">\r\n            <label class=\" control-label\"\r\n                   for=\"fullnameID\">Fullname</label>\r\n\r\n            <div>\r\n              <input class=\"form-control\"\r\n                     id=\"fullnameID\"\r\n                     type=\"text\"\r\n                     required\r\n                     formControlName=\"fullname\" />\r\n              <span class=\"help-block\" *ngIf=\"(formGroup.get('fullname').touched || formGroup.get('fullname').dirty) && formGroup.get('fullname').errors\">\r\n                <span *ngIf=\"formGroup.get('fullname').errors.required\">\r\n                  El campo nombre es requerido\r\n                </span>\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\"\r\n               [ngClass]=\"{'has-error': (formGroup.get('email').touched || formGroup.get('email').dirty) && !formGroup.get('email').valid }\">\r\n            <label class=\" control-label\"\r\n                   for=\"emailId\">Email</label>\r\n\r\n            <div>\r\n              <input class=\"form-control\"\r\n                     id=\"emailId\"\r\n                     type=\"text\"\r\n                     required\r\n                     formControlName=\"email\" />\r\n              <span class=\"help-block\" *ngIf=\"(formGroup.get('email').touched || formGroup.get('email').dirty) && formGroup.get('email').errors\">\r\n                <span *ngIf=\"formGroup.get('email').errors.required\">\r\n                  El campo email es requerido\r\n                </span>\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group\"\r\n               [ngClass]=\"{'has-error': (formGroup.get('password').touched || formGroup.get('password').dirty) && !formGroup.get('password').valid }\">\r\n            <label class=\" control-label\"\r\n                   for=\"passwordId\">Password</label>\r\n\r\n            <div>\r\n              <input class=\"form-control\"\r\n                     id=\"passwordId\"\r\n                     type=\"password\"\r\n                     required\r\n                     formControlName=\"password\" />\r\n              <span class=\"help-block\" *ngIf=\"(formGroup.get('password').touched || formGroup.get('password').dirty) && formGroup.get('password').errors\">\r\n                <span *ngIf=\"formGroup.get('password').errors.required\">\r\n                  El campo password es requerido\r\n                </span>\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group\">\r\n            <div class=\" col-md-offset-2\">\r\n              <span>\r\n                <button class=\"btn btn-primary\"\r\n                        type=\"button\"\r\n                        (click)=\"registrarse()\"\r\n                        [disabled]=\"!formGroup.valid\">\r\n                  Registrarse\r\n                </button>\r\n                <a class=\"linked\"\r\n                   [routerLink]='[\"/login\"]'>\r\n                  ¿Tienes una cuenta? Inicia tu sesion aqui.\r\n                </a>\r\n                <button class=\"btn\"\r\n                        type=\"button\"\r\n                        [routerLink]='[\"/\"]'>\r\n                  Cancelar\r\n                </button>\r\n              </span>\r\n\r\n            </div>\r\n\r\n          </div>\r\n\r\n        </fieldset>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -18,7 +29,7 @@ module.exports = "<h1>Ingrese sus Datos</h1>\r\n<form class=\"form-horizontal\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<body>\r\n  <app-nav-menu></app-nav-menu>\r\n  <div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</body>\r\n"
+module.exports = "<body>\r\n  <app-nav-menu></app-nav-menu>\r\n  <div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</body>\r\n"
 
 /***/ }),
 
@@ -33,17 +44,6 @@ module.exports = "<h1>Counter</h1>\r\n\r\n<p>This is a simple example of an Angu
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/fetch-data/fetch-data.component.html":
-/*!********************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/fetch-data/fetch-data.component.html ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<h1 id=\"tableLabel\">Weather forecast</h1>\r\n\r\n<p>This component demonstrates fetching data from the server.</p>\r\n\r\n<p *ngIf=\"!forecasts\"><em>Loading...</em></p>\r\n\r\n<table class='table table-striped' aria-labelledby=\"tableLabel\" *ngIf=\"forecasts\">\r\n  <thead>\r\n    <tr>\r\n      <th>Date</th>\r\n      <th>Temp. (C)</th>\r\n      <th>Temp. (F)</th>\r\n      <th>Summary</th>\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr *ngFor=\"let forecast of forecasts\">\r\n      <td>{{ forecast.date }}</td>\r\n      <td>{{ forecast.temperatureC }}</td>\r\n      <td>{{ forecast.temperatureF }}</td>\r\n      <td>{{ forecast.summary }}</td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n"
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html":
 /*!********************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/home/home.component.html ***!
@@ -51,7 +51,7 @@ module.exports = "<h1 id=\"tableLabel\">Weather forecast</h1>\r\n\r\n<p>This com
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Hola, mundo!</h1>\r\n<p>Bienvenido a nuestra single page application, hecha con:</p>\r\n<ul>\r\n  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>\r\n  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>\r\n  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>\r\n</ul>\r\n<p>To help you get started, we've also set up:</p>\r\n<ul>\r\n  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>\r\n  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>\r\n  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>\r\n</ul>\r\n<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>\r\n"
+module.exports = "<div class=\"container\">\r\n<h2 style=\"font-weight:800\">CLASES EN VIVO<span class=\"badge badge-danger\" style=\"margin:10px\">New</span></h2>\r\n<div class=\"row\">\r\n  <div class=\"col-lg-12\">\r\n    <div class=\"row\">\r\n      <div class=\"card\">\r\n        <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\r\n        <div class=\"card-body\">\r\n          <h5 class=\"card-title\">Card title</h5>\r\n          <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n          <div>\r\n            <a href=\"#\" class=\"btn btn-success\">DETALLES</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card\" >\r\n        <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\r\n        <div class=\"card-body\">\r\n          <h5 class=\"card-title\">Card title</h5>\r\n          <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n          <div>\r\n            <a href=\"#\" class=\"btn btn-success\">DETALLES</a>\r\n          </div>\r\n        </div>\r\n      </div><div class=\"card\"  >\r\n        <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\r\n        <div class=\"card-body\">\r\n          <h5 class=\"card-title\">Card title</h5>\r\n          <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n          <div>\r\n            <a href=\"#\" class=\"btn btn-success\">DETALLES</a>\r\n          </div>\r\n          </div>\r\n        </div>\r\n      <div class=\"card\">\r\n        <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\r\n        <div class=\"card-body\">\r\n          <h5 class=\"card-title\">Card title</h5>\r\n          <p class=\"card-text\">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\r\n          <div>\r\n            <a href=\"#\" class=\"btn btn-success\">DETALLES</a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -62,7 +62,7 @@ module.exports = "<h1>Hola, mundo!</h1>\r\n<p>Bienvenido a nuestra single page a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <nav\r\n    class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3\"\r\n  >\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" [routerLink]=\"['/']\">AngularDemo</a>\r\n      <button\r\n        class=\"navbar-toggler\"\r\n        type=\"button\"\r\n        data-toggle=\"collapse\"\r\n        data-target=\".navbar-collapse\"\r\n        aria-label=\"Toggle navigation\"\r\n        [attr.aria-expanded]=\"isExpanded\"\r\n        (click)=\"toggle()\"\r\n      >\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div\r\n        class=\"navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse\"\r\n        [ngClass]=\"{ show: isExpanded }\"\r\n      >\r\n        <ul class=\"navbar-nav flex-grow\">\r\n          <li class=\"nav-item\"\r\n              [routerLinkActive]=\"['link-active']\"\r\n              [routerLinkActiveOptions]=\"{ exact: true }\">\r\n            <a class=\"nav-link text-dark\" [routerLink]=\"['/']\">Home</a>\r\n          </li>\r\n          <li class=\"nav-item\" [routerLinkActive]=\"['link-active']\">\r\n            <a class=\"nav-link text-dark\" [routerLink]=\"['/counter']\">Counter</a>\r\n          </li>\r\n          <li class=\"nav-item\" [routerLinkActive]=\"['link-active']\">\r\n            <a class=\"nav-link text-dark\" [routerLink]=\"['/fetch-data']\">Fetch data</a>\r\n          </li>\r\n          <li class=\"nav-item\" [routerLinkActive]=\"['link-active']\">\r\n            <a class=\"nav-link text-dark\" [routerLink]=\"['/personas']\">Personas</a>\r\n          </li>\r\n          <li class=\"nav-item\" *ngIf=\"!estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a class=\"nav-link text-dark\" [routerLink]='[\"/register-login\"]' (click)='collapse()'>\r\n              <span class='glyphicon glyphicon-th-list'></span> Register / Login\r\n            </a>\r\n          </li>\r\n          <li *ngIf=\"estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a (click)='logout()'>\r\n              <span class='glyphicon glyphicon-th-list'></span> Logout\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n"
+module.exports = "<header>\r\n  <nav\r\n    class=\"navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3\"\r\n  >\r\n    <div class=\"container\">\r\n      <a class=\"navbar-brand\" [routerLink]=\"['/']\" style=\"font-weight:bold;\">PERÚ CLOWN</a>\r\n      <button\r\n        class=\"navbar-toggler\"\r\n        type=\"button\"\r\n        data-toggle=\"collapse\"\r\n        data-target=\".navbar-collapse\"\r\n        aria-label=\"Toggle navigation\"\r\n        [attr.aria-expanded]=\"isExpanded\"\r\n        (click)=\"toggle()\"\r\n      >\r\n        <span class=\"navbar-toggler-icon\"></span>\r\n      </button>\r\n      <div\r\n        class=\"collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse\"\r\n        [ngClass]=\"{ show: isExpanded }\" id=\"navbarSupportedContent\"\r\n      >\r\n        <ul class=\"navbar-nav flex-grow\">\r\n          <!--<li class=\"nav-item\"\r\n      [routerLinkActive]=\"['link-active']\"\r\n      [routerLinkActiveOptions]=\"{ exact: true }\">\r\n    <a class=\"nav-link text-ligth\" [routerLink]=\"['/']\">Home</a>\r\n  </li>\r\n  <li class=\"nav-item\" [routerLinkActive]=\"['link-active']\">\r\n    <a class=\"nav-link text-ligth\" [routerLink]=\"['/counter']\">Counter</a>\r\n  </li>\r\n  <li class=\"nav-item\" [routerLinkActive]=\"['link-active']\">\r\n    <a class=\"nav-link text-ligth\" [routerLink]=\"['/personas']\">Support</a>\r\n  </li>-->\r\n          <li>\r\n            <form class=\"form-inline\">\r\n              <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\r\n              <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\r\n            </form>\r\n          </li>\r\n          <li class=\"nav-item\" *ngIf=\"!estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a class=\"nav-link text-info\" style=\"text-decoration:underline\" [routerLink]='[\"/register\"]' (click)='collapse()'>\r\n              Registrarse\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\" *ngIf=\"!estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a class=\"btn btn-success\" style=\"border-radius:50px\" [routerLink]='[\"/login\"]' (click)='collapse()'>\r\n              Iniciar Secion\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item dropdown\">\r\n            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n              Dropdown\r\n            </a>\r\n            <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n              <a class=\"dropdown-item\" href=\"#\">Action</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Another action</a>\r\n              <div class=\"dropdown-divider\"></div>\r\n              <a class=\"dropdown-item\" href=\"#\">Something else here</a>\r\n            </div>\r\n          </li>\r\n          <li *ngIf=\"estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a class=\"nav-link text-info\" style=\"cursor:pointer\">\r\n              <span class='glyphicon glyphicon-th-list'></span> {{obtenerUniqueName()}}\r\n            </a>\r\n          </li>\r\n          <li *ngIf=\"estaLogueado()\" [routerLinkActive]='[\"link-active\"]'>\r\n            <a class=\"btn btn-danger\" style=\"border-radius:50px; color:white; cursor:pointer\" (click)='logout()'>\r\n              Cerrar Secion\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n"
 
 /***/ }),
 
@@ -147,7 +147,9 @@ var AccountService = /** @class */ (function () {
         return this.http.post(this.apiURL + "/create", userInfo);
     };
     AccountService.prototype.login = function (userInfo) {
-        return this.http.post(this.apiURL + "/Login", userInfo);
+        localStorage.removeItem("token");
+        localStorage.removeItem("tokenExpiration");
+        return this.http.post(this.apiURL + "/login", userInfo);
     };
     AccountService.prototype.obtenerToken = function () {
         return localStorage.getItem("token");
@@ -195,6 +197,94 @@ var AccountService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/account/login/login.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/account/login/login.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled),\r\n.btn-success.disabled, .btn-success:disabled, .linked {\r\n  width: 100%;\r\n}\r\n.linked {\r\n  display: block;\r\n  text-decoration: underline;\r\n  text-align: center;\r\n}\r\n.outer {\r\n  display: table;\r\n  top: 0;\r\n  left: 0;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n.middle {\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}\r\n.inner {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-width: 400px;\r\n  padding:20px\r\n  /*whatever width you want*/\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWNjb3VudC9sb2dpbi9sb2dpbi5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGNBQWM7RUFDZCxNQUFNO0VBQ04sT0FBTztFQUNQLFlBQVk7RUFDWixXQUFXO0FBQ2I7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixzQkFBc0I7QUFDeEI7QUFFQTtFQUNFLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCwwQkFBMEI7QUFDNUIiLCJmaWxlIjoic3JjL2FwcC9hY2NvdW50L2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJbdHlwZT1idXR0b25dOm5vdCg6ZGlzYWJsZWQpLCBbdHlwZT1yZXNldF06bm90KDpkaXNhYmxlZCksIFt0eXBlPXN1Ym1pdF06bm90KDpkaXNhYmxlZCksIGJ1dHRvbjpub3QoOmRpc2FibGVkKSxcclxuLmJ0bi1zdWNjZXNzLmRpc2FibGVkLCAuYnRuLXN1Y2Nlc3M6ZGlzYWJsZWQsIC5saW5rZWQge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbi5saW5rZWQge1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4ub3V0ZXIge1xyXG4gIGRpc3BsYXk6IHRhYmxlO1xyXG4gIHRvcDogMDtcclxuICBsZWZ0OiAwO1xyXG4gIGhlaWdodDogMTAwJTtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG5cclxuLm1pZGRsZSB7XHJcbiAgZGlzcGxheTogdGFibGUtY2VsbDtcclxuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG59XHJcblxyXG4uaW5uZXIge1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxuICBtYXgtd2lkdGg6IDQwMHB4O1xyXG4gIHBhZGRpbmc6MjBweFxyXG4gIC8qd2hhdGV2ZXIgd2lkdGggeW91IHdhbnQqL1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/account/login/login.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/account/login/login.component.ts ***!
+  \**************************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _account_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../account.service */ "./src/app/account/account.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent(fb, accountService, router) {
+        this.fb = fb;
+        this.accountService = accountService;
+        this.router = router;
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+        this.formGroup = this.fb.group({
+            fullname: '',
+            email: '',
+            password: '',
+        });
+    };
+    LoginComponent.prototype.loguearse = function () {
+        var _this = this;
+        var userInfo = Object.assign({}, this.formGroup.value);
+        this.accountService.login(userInfo).subscribe(function (token) { return _this.recibirToken(token); }, function (error) { return _this.manejarError(error); });
+    };
+    LoginComponent.prototype.recibirToken = function (token) {
+        localStorage.setItem('token', token.token);
+        localStorage.setItem('tokenExpiration', token.expiration);
+        this.router.navigate([""]);
+    };
+    LoginComponent.prototype.manejarError = function (error) {
+        if (error && error.error) {
+            alert(error.error[""]);
+        }
+    };
+    LoginComponent.ctorParameters = function () { return [
+        { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
+        { type: _account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    ]; };
+    LoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/index.js!./src/app/account/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/account/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"],
+            _account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/account/register/register.component.css":
 /*!*********************************************************!*\
   !*** ./src/app/account/register/register.component.css ***!
@@ -202,7 +292,7 @@ var AccountService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FjY291bnQvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled),\r\n.btn-primary.disabled, .btn-primary:disabled,.linked {\r\n  width: 100%;\r\n}\r\n.linked {\r\n  display: block;\r\n  text-decoration: underline;\r\n  text-align: center;\r\n}\r\n.help-block{\r\n    color:red;\r\n}\r\n.outer {\r\n  display: table;\r\n  top: 0;\r\n  left: 0;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n.middle {\r\n  display: table-cell;\r\n  vertical-align: middle;\r\n}\r\n.inner {\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  max-width: 400px;\r\n  padding:10px;\r\n  /*whatever width you want*/\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWNjb3VudC9yZWdpc3Rlci9yZWdpc3Rlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFLFdBQVc7QUFDYjtBQUNBO0VBQ0UsY0FBYztFQUNkLDBCQUEwQjtFQUMxQixrQkFBa0I7QUFDcEI7QUFDQTtJQUNJLFNBQVM7QUFDYjtBQUNBO0VBQ0UsY0FBYztFQUNkLE1BQU07RUFDTixPQUFPO0VBQ1AsWUFBWTtFQUNaLFdBQVc7QUFDYjtBQUVBO0VBQ0UsbUJBQW1CO0VBQ25CLHNCQUFzQjtBQUN4QjtBQUVBO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLDBCQUEwQjtBQUM1QiIsImZpbGUiOiJzcmMvYXBwL2FjY291bnQvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlt0eXBlPWJ1dHRvbl06bm90KDpkaXNhYmxlZCksIFt0eXBlPXJlc2V0XTpub3QoOmRpc2FibGVkKSwgW3R5cGU9c3VibWl0XTpub3QoOmRpc2FibGVkKSwgYnV0dG9uOm5vdCg6ZGlzYWJsZWQpLFxyXG4uYnRuLXByaW1hcnkuZGlzYWJsZWQsIC5idG4tcHJpbWFyeTpkaXNhYmxlZCwubGlua2VkIHtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG4ubGlua2VkIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmhlbHAtYmxvY2t7XHJcbiAgICBjb2xvcjpyZWQ7XHJcbn1cclxuLm91dGVyIHtcclxuICBkaXNwbGF5OiB0YWJsZTtcclxuICB0b3A6IDA7XHJcbiAgbGVmdDogMDtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5taWRkbGUge1xyXG4gIGRpc3BsYXk6IHRhYmxlLWNlbGw7XHJcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxufVxyXG5cclxuLmlubmVyIHtcclxuICBtYXJnaW4tbGVmdDogYXV0bztcclxuICBtYXJnaW4tcmlnaHQ6IGF1dG87XHJcbiAgbWF4LXdpZHRoOiA0MDBweDtcclxuICBwYWRkaW5nOjEwcHg7XHJcbiAgLyp3aGF0ZXZlciB3aWR0aCB5b3Ugd2FudCovXHJcbn1cclxuIl19 */"
 
 /***/ }),
 
@@ -245,11 +335,6 @@ var RegisterComponent = /** @class */ (function () {
             email: '',
             password: '',
         });
-    };
-    RegisterComponent.prototype.loguearse = function () {
-        var _this = this;
-        var userInfo = Object.assign({}, this.formGroup.value);
-        this.accountService.login(userInfo).subscribe(function (token) { return _this.recibirToken(token); }, function (error) { return _this.manejarError(error); });
     };
     RegisterComponent.prototype.registrarse = function () {
         var _this = this;
@@ -342,20 +427,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./nav-menu/nav-menu.component */ "./src/app/nav-menu/nav-menu.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./counter/counter.component */ "./src/app/counter/counter.component.ts");
-/* harmony import */ var _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./fetch-data/fetch-data.component */ "./src/app/fetch-data/fetch-data.component.ts");
-/* harmony import */ var _personas_personas_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./personas/personas.component */ "./src/app/personas/personas.component.ts");
-/* harmony import */ var _personas_personas_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./personas/personas.service */ "./src/app/personas/personas.service.ts");
-/* harmony import */ var _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./personas/personas-form/personas-form.component */ "./src/app/personas/personas-form/personas-form.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/locales/es-US */ "./node_modules/@angular/common/locales/es-US.js");
-/* harmony import */ var _angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _services_log_interceptor_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/log-interceptor.service */ "./src/app/services/log-interceptor.service.ts");
-/* harmony import */ var _direcciones_direccion_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./direcciones/direccion.service */ "./src/app/direcciones/direccion.service.ts");
-/* harmony import */ var _personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./personas/personas-form/leave-form.service */ "./src/app/personas/personas-form/leave-form.service.ts");
-/* harmony import */ var _account_register_register_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./account/register/register.component */ "./src/app/account/register/register.component.ts");
-/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
-/* harmony import */ var _account_account_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./account/account.service */ "./src/app/account/account.service.ts");
-/* harmony import */ var _services_auth_interceptor_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./services/auth-interceptor.service */ "./src/app/services/auth-interceptor.service.ts");
+/* harmony import */ var _personas_personas_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./personas/personas.component */ "./src/app/personas/personas.component.ts");
+/* harmony import */ var _personas_personas_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./personas/personas.service */ "./src/app/personas/personas.service.ts");
+/* harmony import */ var _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./personas/personas-form/personas-form.component */ "./src/app/personas/personas-form/personas-form.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common/locales/es-US */ "./node_modules/@angular/common/locales/es-US.js");
+/* harmony import */ var _angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _services_log_interceptor_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/log-interceptor.service */ "./src/app/services/log-interceptor.service.ts");
+/* harmony import */ var _direcciones_direccion_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./direcciones/direccion.service */ "./src/app/direcciones/direccion.service.ts");
+/* harmony import */ var _personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./personas/personas-form/leave-form.service */ "./src/app/personas/personas-form/leave-form.service.ts");
+/* harmony import */ var _account_register_register_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./account/register/register.component */ "./src/app/account/register/register.component.ts");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _account_account_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./account/account.service */ "./src/app/account/account.service.ts");
+/* harmony import */ var _services_auth_interceptor_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/auth-interceptor.service */ "./src/app/services/auth-interceptor.service.ts");
+/* harmony import */ var _account_login_login_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./account/login/login.component */ "./src/app/account/login/login.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -384,7 +469,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-Object(_angular_common__WEBPACK_IMPORTED_MODULE_13__["registerLocaleData"])(_angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_14___default.a);
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_12__["registerLocaleData"])(_angular_common_locales_es_US__WEBPACK_IMPORTED_MODULE_13___default.a);
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -395,10 +480,10 @@ var AppModule = /** @class */ (function () {
                 _nav_menu_nav_menu_component__WEBPACK_IMPORTED_MODULE_6__["NavMenuComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
                 _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"],
-                _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"],
-                _personas_personas_component__WEBPACK_IMPORTED_MODULE_10__["PersonasComponent"],
-                _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_12__["PersonasFormComponent"],
-                _account_register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"]
+                _personas_personas_component__WEBPACK_IMPORTED_MODULE_9__["PersonasComponent"],
+                _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_11__["PersonasFormComponent"],
+                _account_register_register_component__WEBPACK_IMPORTED_MODULE_17__["RegisterComponent"],
+                _account_login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"].withServerTransition({ appId: 'ng-cli-universal' }),
@@ -408,26 +493,30 @@ var AppModule = /** @class */ (function () {
                 _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot([
                     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
                     { path: 'counter', component: _counter_counter_component__WEBPACK_IMPORTED_MODULE_8__["CounterComponent"] },
-                    { path: 'fetch-data', component: _fetch_data_fetch_data_component__WEBPACK_IMPORTED_MODULE_9__["FetchDataComponent"] },
-                    { path: 'personas', component: _personas_personas_component__WEBPACK_IMPORTED_MODULE_10__["PersonasComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_19__["AuthGuardService"]] },
-                    { path: 'personas/agregar', component: _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_12__["PersonasFormComponent"], canDeactivate: [_personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_17__["LeaveFormService"]] },
-                    { path: 'personas/editar/:id', component: _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_12__["PersonasFormComponent"], canDeactivate: [_personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_17__["LeaveFormService"]] },
-                    { path: 'register-login', component: _account_register_register_component__WEBPACK_IMPORTED_MODULE_18__["RegisterComponent"] },
+                    { path: 'personas', component: _personas_personas_component__WEBPACK_IMPORTED_MODULE_9__["PersonasComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuardService"]] },
+                    { path: 'personas/agregar', component: _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_11__["PersonasFormComponent"], canDeactivate: [_personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_16__["LeaveFormService"]] },
+                    { path: 'personas/editar/:id', component: _personas_personas_form_personas_form_component__WEBPACK_IMPORTED_MODULE_11__["PersonasFormComponent"], canDeactivate: [_personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_16__["LeaveFormService"]] },
+                    { path: 'login', component: _account_login_login_component__WEBPACK_IMPORTED_MODULE_21__["LoginComponent"] },
+                    { path: 'register', component: _account_register_register_component__WEBPACK_IMPORTED_MODULE_17__["RegisterComponent"] },
                 ])
             ],
-            providers: [_personas_personas_service__WEBPACK_IMPORTED_MODULE_11__["PersonasService"], { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"], useValue: "en-US" },
+            providers: [
+                {
+                    provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"], useValue: "en-US"
+                },
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-                    useClass: _services_log_interceptor_service__WEBPACK_IMPORTED_MODULE_15__["LogInterceptorService"],
+                    useClass: _services_log_interceptor_service__WEBPACK_IMPORTED_MODULE_14__["LogInterceptorService"],
                     multi: true
                 },
-                _direcciones_direccion_service__WEBPACK_IMPORTED_MODULE_16__["DireccionesService"],
-                _personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_17__["LeaveFormService"],
-                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_19__["AuthGuardService"],
-                _account_account_service__WEBPACK_IMPORTED_MODULE_20__["AccountService"],
+                _personas_personas_service__WEBPACK_IMPORTED_MODULE_10__["PersonasService"],
+                _direcciones_direccion_service__WEBPACK_IMPORTED_MODULE_15__["DireccionesService"],
+                _personas_personas_form_leave_form_service__WEBPACK_IMPORTED_MODULE_16__["LeaveFormService"],
+                _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_18__["AuthGuardService"],
+                _account_account_service__WEBPACK_IMPORTED_MODULE_19__["AccountService"],
                 {
                     provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
-                    useClass: _services_auth_interceptor_service__WEBPACK_IMPORTED_MODULE_21__["AuthInterceptorService"],
+                    useClass: _services_auth_interceptor_service__WEBPACK_IMPORTED_MODULE_20__["AuthInterceptorService"],
                     multi: true
                 }
             ],
@@ -530,55 +619,14 @@ var DireccionesService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/fetch-data/fetch-data.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/fetch-data/fetch-data.component.ts ***!
-  \****************************************************/
-/*! exports provided: FetchDataComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/app/home/home.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/home/home.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FetchDataComponent", function() { return FetchDataComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-
-
-var FetchDataComponent = /** @class */ (function () {
-    function FetchDataComponent(http, baseUrl) {
-        var _this = this;
-        http.get(baseUrl + 'weatherforecast').subscribe(function (result) {
-            _this.forecasts = result;
-        }, function (error) { return console.error(error); });
-    }
-    FetchDataComponent.ctorParameters = function () { return [
-        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"] },
-        { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: ['BASE_URL',] }] }
-    ]; };
-    FetchDataComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-fetch-data',
-            template: __webpack_require__(/*! raw-loader!./fetch-data.component.html */ "./node_modules/raw-loader/index.js!./src/app/fetch-data/fetch-data.component.html")
-        }),
-        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])('BASE_URL')),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], String])
-    ], FetchDataComponent);
-    return FetchDataComponent;
-}());
-
-
+module.exports = ".card-body div a{\r\n  float: right;\r\n  font-size: 12px;\r\n  font-weight:700;\r\n  border-radius: 50px;\r\n}\r\n.card-body {\r\n  color: white;\r\n  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(21,21,22,1) 35%, rgba(98,108,110,0.711922268907563) 100%);\r\n}\r\n@media (min-width: 1200px) {\r\n  /* some CSS for small resolution */\r\n.card {\r\n  width:22.5%; margin:13px;\r\n}\r\n}\r\n@media (max-width: 1199px) {\r\n  /* some CSS for small resolution */\r\n  .card {\r\n    width: 30.3%;\r\n    margin: 13px;\r\n  }\r\n}\r\n@media (max-width: 991px) {\r\n  /* some CSS for small resolution */\r\n  .card {\r\n    width: 45.5%;\r\n    margin: 13px;\r\n  }\r\n}\r\n@media (max-width: 768px) {\r\n  /* some CSS for small resolution */\r\n  .card {\r\n    width: 90%;\r\n    margin: 13px;\r\n  }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9ob21lLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFZO0VBQ1osZUFBZTtFQUNmLGVBQWU7RUFDZixtQkFBbUI7QUFDckI7QUFDQTtFQUNFLFlBQVk7RUFDWixrSEFBa0g7QUFDcEg7QUFDQTtFQUNFLGtDQUFrQztBQUNwQztFQUNFLFdBQVcsRUFBRSxXQUFXO0FBQzFCO0FBQ0E7QUFDQTtFQUNFLGtDQUFrQztFQUNsQztJQUNFLFlBQVk7SUFDWixZQUFZO0VBQ2Q7QUFDRjtBQUNBO0VBQ0Usa0NBQWtDO0VBQ2xDO0lBQ0UsWUFBWTtJQUNaLFlBQVk7RUFDZDtBQUNGO0FBQ0E7RUFDRSxrQ0FBa0M7RUFDbEM7SUFDRSxVQUFVO0lBQ1YsWUFBWTtFQUNkO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL2hvbWUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJkLWJvZHkgZGl2IGF7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxuICBmb250LXdlaWdodDo3MDA7XHJcbiAgYm9yZGVyLXJhZGl1czogNTBweDtcclxufVxyXG4uY2FyZC1ib2R5IHtcclxuICBjb2xvcjogd2hpdGU7XHJcbiAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDBkZWcsIHJnYmEoMCwwLDAsMSkgMCUsIHJnYmEoMjEsMjEsMjIsMSkgMzUlLCByZ2JhKDk4LDEwOCwxMTAsMC43MTE5MjIyNjg5MDc1NjMpIDEwMCUpO1xyXG59XHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuICAvKiBzb21lIENTUyBmb3Igc21hbGwgcmVzb2x1dGlvbiAqL1xyXG4uY2FyZCB7XHJcbiAgd2lkdGg6MjIuNSU7IG1hcmdpbjoxM3B4O1xyXG59XHJcbn1cclxuQG1lZGlhIChtYXgtd2lkdGg6IDExOTlweCkge1xyXG4gIC8qIHNvbWUgQ1NTIGZvciBzbWFsbCByZXNvbHV0aW9uICovXHJcbiAgLmNhcmQge1xyXG4gICAgd2lkdGg6IDMwLjMlO1xyXG4gICAgbWFyZ2luOiAxM3B4O1xyXG4gIH1cclxufVxyXG5AbWVkaWEgKG1heC13aWR0aDogOTkxcHgpIHtcclxuICAvKiBzb21lIENTUyBmb3Igc21hbGwgcmVzb2x1dGlvbiAqL1xyXG4gIC5jYXJkIHtcclxuICAgIHdpZHRoOiA0NS41JTtcclxuICAgIG1hcmdpbjogMTNweDtcclxuICB9XHJcbn1cclxuQG1lZGlhIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgLyogc29tZSBDU1MgZm9yIHNtYWxsIHJlc29sdXRpb24gKi9cclxuICAuY2FyZCB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luOiAxM3B4O1xyXG4gIH1cclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -607,6 +655,7 @@ var HomeComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         })
     ], HomeComponent);
     return HomeComponent;
@@ -663,6 +712,13 @@ var NavMenuComponent = /** @class */ (function () {
     };
     NavMenuComponent.prototype.toggle = function () {
         this.isExpanded = !this.isExpanded;
+    };
+    NavMenuComponent.prototype.obtenerUniqueName = function () {
+        var token = localStorage.getItem("token");
+        var jwtData = token.split('.')[1];
+        var decodedJwtJsonData = window.atob(jwtData);
+        var decodedJwtData = JSON.parse(decodedJwtJsonData);
+        return decodedJwtData.fullname;
     };
     NavMenuComponent.prototype.logout = function () {
         this.accountService.logout();
@@ -1066,7 +1122,7 @@ var AuthGuardService = /** @class */ (function () {
             return true;
         }
         else {
-            this.router.navigate(['/register-login']);
+            this.router.navigate(['/login']);
             return false;
         }
     };

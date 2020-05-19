@@ -3,7 +3,7 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">College Virtual</a>
+      <a class="navbar-brand" [routerLink]="['/']" style="font-weight:bold;">PERÚ CLOWN</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,40 +16,45 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div
-        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-        [ngClass]="{ show: isExpanded }"
+        class="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }" id="navbarSupportedContent"
       >
         <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
-              [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-ligth" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-ligth" [routerLink]="['/counter']">Counter</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-ligth" [routerLink]="['/personas']">Support</a>
+          <!--<li class="nav-item"
+      [routerLinkActive]="['link-active']"
+      [routerLinkActiveOptions]="{ exact: true }">
+    <a class="nav-link text-ligth" [routerLink]="['/']">Home</a>
+  </li>
+  <li class="nav-item" [routerLinkActive]="['link-active']">
+    <a class="nav-link text-ligth" [routerLink]="['/counter']">Counter</a>
+  </li>
+  <li class="nav-item" [routerLinkActive]="['link-active']">
+    <a class="nav-link text-ligth" [routerLink]="['/personas']">Support</a>
+  </li>-->
+          <li>
+            <form class="form-inline">
+              <button style="border:0px; background:transparent;" type="submit"><fa-icon [icon]="faSearch" [ngStyle]="{'color': select ? 'rgba(0,123,255,.25)':'#292929' }"></fa-icon> </button>
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" (click)="selection()" (focusout)="focusOutFunction()" aria-label="Search">
+            </form>
           </li>
           <li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-success" [routerLink]='["/login"]' (click)='collapse()'>
-              <span class='glyphicon glyphicon-th-list'></span> Login
+            <a class="nav-link text-info" style="text-decoration:underline" [routerLink]='["/register"]' (click)='collapse()'>
+              Registrarse
             </a>
           </li>
           <li class="nav-item" *ngIf="!estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-info" [routerLink]='["/register"]' (click)='collapse()'>
-              <span class='glyphicon glyphicon-th-list'></span> Register
+            <a class="btn btn-success" style="border-radius:50px" [routerLink]='["/login"]' (click)='collapse()'>
+              Iniciar Secion
             </a>
           </li>
-          <li *ngIf="estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-info" style="cursor:pointer">
-              <span class='glyphicon glyphicon-th-list'></span> {{obtenerUniqueName()}}
+          <li class="nav-item dropdown"  *ngIf="estaLogueado()">
+            <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{obtenerUniqueName()}}
             </a>
-          </li>
-          <li *ngIf="estaLogueado()" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-danger" (click)='logout()' style="cursor:pointer">
-              <span class='glyphicon glyphicon-th-list'></span> Logout
-            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-info" style="cursor:pointer">Editar</a>
+              <a class="dropdown-item text-danger" sstyle="cursor:pointer" (click)='logout()'>Cerrar Secion</a>
+            </div>
           </li>
         </ul>
       </div>

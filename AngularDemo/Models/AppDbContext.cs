@@ -28,8 +28,6 @@ namespace AngularDemo.Models
             return base.SaveChanges();
         }
         public DbSet<Course> Courses { set; get; }
-        public DbSet<Address> Addresses { set; get; }
-        public DbSet<AngularDemo.Models.College> College { get; set; }
 
         //AGREGAR LISTAS QUE DESEO USAR
     }

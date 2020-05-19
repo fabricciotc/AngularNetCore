@@ -13,23 +13,14 @@ namespace AngularDemo.Models
         public int CourseId { set; get; }
         [StringLength(45)]
         public string Name { set; get; }
-        [StringLength(25)]
-        public string Faculty { set; get; }
         [StringLength(20)]
-        public string Classroom { set; get; }
-        public int CollegeId { set; get; }
-        [ForeignKey("CollegeId")]
-        public College college { set; get; }
-        public string TeacherId { set; get; }
-        [ForeignKey("TeacherId")]
-        public User teacher { set; get; }
+        public string ClassroomID { set; get; }
+        public string ClassroomPASS { set; get; }
+        public string TeacherName { set; get; }
         public int SedeId { set; get; }
-        [ForeignKey("SedeId")]
-        public Sede sede { set; get; }
         //PROPIEDADES DE NAVEGACION
         public List<Schedule> Schedules { set; get; }
-        public List<Enroll> Students { set; get; }
-        public List<Homework> Homeworks { set; get; }
+        public List<CourseBuy> Students { set; get; }
 
     }
 }

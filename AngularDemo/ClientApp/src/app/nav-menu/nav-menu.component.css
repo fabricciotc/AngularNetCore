@@ -16,3 +16,18 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+input, input:hover{
+background-color: transparent;
+border: 1px solid #292929;
+color: whitesmoke;
+border-radius:30px;
+}
+  input:focus {
+    background-color: transparent;
+    color: whitesmoke;
+    border: 0px solid #292929;
+  }
+.form-inline{
+    flex-flow:row;
+}
